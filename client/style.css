@@ -1,0 +1,65 @@
+.hidden_div {
+	display: none;
+}
+
+ol {
+    padding: 0;
+    list-style-type: none;
+    counter-reset: section;
+}
+
+ol li,
+.info {
+    counter-increment: section;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #F8F8F8;
+}
+
+ol li::before {
+    content: counter(section);
+    margin-right: 5px;
+    font-size: 80%;
+    background-color: #3388BB;
+    color: white;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+
+.info {
+    background-color: #3388BB;
+    color: white;
+    text-align: center;
+}
+.info a {
+    color: white;
+    text-decoration: underline;
+}
+
+.website-meta {
+    float: right;
+    line-height: 35px;
+}
+
+.comment-meta {
+    text-align: right;
+    margin: 5px 0 0 0;
+}
+
+.website-meta span {
+    font-weight: bold;
+}
+
+.toggle-website-form,
+#website_form,
+.info {
+    margin-bottom: 10px;
+}
+
+#login-buttons {
+    float: right;
+    margin-top: 15px;
+}
