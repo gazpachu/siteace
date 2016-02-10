@@ -63,3 +63,14 @@ ol li::before {
     float: right;
     margin-top: 15px;
 }
+
+#url {
+    float: left;
+    width: 50%;
+    margin-right: 5px;
+}
+
+#search {
+    float: right;
+    max-width: 150px;
+}

@@ -51,18 +51,12 @@ Template.website_list.helpers({
     }
 });
 
-Template.website_item.helpers({
-  formattedDate: function(){
-    return moment(this.createdOn).format("MM/DD/YYYY");  // or whatever format you prefer
-  }
+// format the date
+Template.registerHelper('formattedDate', function() {
+     return moment(this.createdOn).format("MM/DD/YYYY");  // or whatever format you prefer
 });
 
-Template.comment_item.helpers({
-  formattedDate: function(){
-    return moment(this.createdOn).format("MM/DD/YYYY");  // or whatever format you prefer
-  }
-});
-
+// List all the comments for a given website
 Template.comments_list.helpers({
     comments:function(){
         return Comments.find({website: Router.current().params._id});
@@ -74,7 +68,7 @@ Template.comments_list.helpers({
 // template events 
 /////
 
-Template.website_item.events({
+Template.ApplicationLayout.events({
     "click .js-upvote":function(event){
         // example of how you can access the id for the website in the database
         // (this is the data context for the template)
@@ -105,7 +99,7 @@ Template.website_item.events({
 Template.website_form.events({
     "click .js-toggle-website-form":function(event){
         $("#website_form").toggle('slow');
-    }, 
+    },
     "submit .js-save-website-form":function(event){
 
         if (Meteor.user()) {
@@ -136,7 +130,6 @@ Template.website_form.events({
         }
 
         return false; // stop the form submit from reloading the page
-
     }
 });
 
