@@ -9,6 +9,7 @@
     {{> yield "navbar"}}
     <div class="container">
         <p class="info">Tutorial &amp; source code in <a href="http://joanmira.com/build-a-social-website-aggregator-using-meteor/">http://joanmira.com/build-a-social-website-aggregator-using-meteor/</a></p>
+        <p class="info info2">### Please vote or log in to submit websites or comments ###</p>
         {{> yield "form"}}
         {{> yield "main"}}
         {{> yield "comments"}}
@@ -33,7 +34,7 @@
     <a class="btn btn-default toggle-website-form js-toggle-website-form" href="#">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </a>
-    <input type="text" class="form-control" id="search" placeholder="Search..." value="{{keywords}}">
+    <input type="text" class="form-control" id="search" placeholder="Search...WIP" value="{{keywords}}">
     <div id="website_form" class="hidden_div">
         <form class="js-save-website-form">
           <div class="form-group">
@@ -101,7 +102,7 @@
 <template name="comment_item">
     <li>
         {{comment}}
-        <p class="comment-meta">{{formattedDate}} by {{user}}</p>
+        <p class="comment-meta">{{formattedDate}} by {{getUser user}}</p>
     </li>
 </template>
 

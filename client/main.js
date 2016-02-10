@@ -51,6 +51,17 @@ Template.website_list.helpers({
     }
 });
 
+// helper function that returns the username for a given user ID
+Template.registerHelper('getUser', function(userId) {
+     var user = Meteor.users.findOne({_id: userId});
+    if (user) {
+        return user.username;
+    }
+    else {
+        return "anonymous";
+    }
+});
+
 // format the date
 Template.registerHelper('formattedDate', function() {
      return moment(this.createdOn).format("MM/DD/YYYY");  // or whatever format you prefer
@@ -119,7 +130,7 @@ Template.website_form.events({
                     url: url, 
                     description: description, 
                     createdOn: new Date(),
-                    user: Meteor.user().username,
+                    user: Meteor.user()._id,
                     up: 0,
                     down: 0
                 });
@@ -146,7 +157,7 @@ Template.comment_form.events({
                 website: Router.current().params._id, 
                 comment: comment, 
                 createdOn: new Date(),
-                user: Meteor.user().username
+                user: Meteor.user()._id
             });
         }
         else {

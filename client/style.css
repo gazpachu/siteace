@@ -34,7 +34,11 @@ ol li::before {
     color: white;
     text-align: center;
 }
-.info a {
+.info2 {
+    background-color: #4DAB2E;
+}
+.info a,
+.info2 a {
     color: white;
     text-decoration: underline;
 }
